@@ -10,20 +10,6 @@ Our mission is to break you into this world gently. So let's begin...
 * NodeJS & npm - https://nodejs.org **or** via NVM (https://github.com/creationix/nvm)
 * yarn [optional] - https://yarnpkg.com
 
-## Download
-
-Just use `git` to clone the ssh version:
-
-    git clone git@github.com:jhbsk/jest-unit-testing-examples.git
-
-**Or** use `git` to clone the https version:
-
-	git clone https://github.com/jhbsk/jest-unit-testing-examples.git
-
-**Or** download the .zip archive and unzip it to the folder `jest-unit-testing-examples`:
-
-	https://github.com/jhbsk/jest-unit-testing-examples/archive/master.zip
-
 ## Installation
 
 On the command-line or Terminal, navigate to the root of the directory which you downloaded and run:
