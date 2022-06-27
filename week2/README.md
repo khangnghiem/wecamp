@@ -16,4 +16,5 @@ Please create a .babelrc file with the following content
 
 Here are a few commands you should now be able to run:
 * Run Jest tests once: `npm test` or `yarn test`
-* Run Jest tests once: `npm test simple.test` or `yarn test simple.test`
+* Run simple.test tests once: `npm test simple.test` or `yarn test simple.test`
+* Run refactored tests once: `npm test simple-refactored.test` or `yarn test simple-refactored.test`
