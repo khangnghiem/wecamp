@@ -10,7 +10,7 @@ export function add(a, b) {
 }
 
 export function addThree(a, b, c) {
-  // First check if a and b exist (zero is an allowed value), then check their types are correct
+  // First check if a, b, c exist (zero is an allowed value), then check their types are correct
   if (
     (a || a === 0)
     && (b || b === 0)
