@@ -1,7 +1,9 @@
 // Note: Sut means System Under Test,
 // which saves us from having to give it a unique name each time
-import { add, addThree } from '../src/simple';
 
+
+import { addThree } from '../src/simple';
+// ES06 - Javascript
 // First check the happy path - the normal inputs expected to get an output
 
 describe('the AddThree function', () => {
@@ -28,6 +30,8 @@ describe('the AddThree function', () => {
     expect(addThree(100000000000000000, 100000000000000000, 100000000000000000)).toEqual(300000000000000000);
   });
 
+});
+describe('second', () => {
   test('Adding false, false and false should equal false', () => {
     expect(addThree(false, false, false)).toEqual(false);
   });

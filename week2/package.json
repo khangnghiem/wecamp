@@ -8,7 +8,8 @@
     "babel-jest": "28.1.1",
     "babel-preset-airbnb": "^5.0.0",
     "babel-preset-env": "1.7.0",
-    "jest": "28.1.1"
+    "jest": "28.1.1",
+    "supertest": "^6.2.3"
   },
   "scripts": {
     "test": "jest --ci",
@@ -21,8 +22,7 @@
   "dependencies": {
     "@types/jest": "^28.1.1",
     "npm": "^6.6.0",
-    "snyk": "^1.143.1",
-    "supertest": "^6.2.3"
+    "snyk": "^1.143.1"
   },
   "snyk": true
 }
