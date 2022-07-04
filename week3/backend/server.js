@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
-import uuid from "uuid";
+import { v4 as uuid } from "uuid";
+
 
 
 const app = express();
@@ -27,6 +28,13 @@ app.get('/healthcheck', (req, res, next) => {
   res.status(200).json({
     status: 200,
     message: "Khang is here"
+  })
+})
+
+app.get('/badrequest', (req, res, next) => {
+  res.status(400).json({
+    status: 400,
+    message: "Khang is not here"
   })
 })
 
@@ -58,4 +66,4 @@ app.post('/product', (req, res, next) => {
     });
 });
 
-app.listen(8000); // start Node + Express server on port 8000
+module.exports = app.listen(8000); // start Node + Express server on port 8000
