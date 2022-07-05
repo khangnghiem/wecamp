@@ -66,4 +66,4 @@ app.post('/product', (req, res, next) => {
     });
 });
 
-module.exports = app.listen(8000); // start Node + Express server on port 8000
+export default app.listen(8000); // start Node + Express server on port 8000
