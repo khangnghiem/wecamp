@@ -6,12 +6,9 @@ import app from "./server";
 import supertest from "supertest";
 
 describe('integration test', () => {
-    let request;
-    beforeAll(() => {
-        request = supertest(app)
-    })
+
     it('/healthcheck', async () => {
-        let response = await request.get('/healthcheck')
+        let response = await supertest(app).get('/healthcheck')
         console.log(response.body);
 
         expect(response.status).toBe(200);
