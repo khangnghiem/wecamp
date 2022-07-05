@@ -12,9 +12,10 @@ describe('integration test', () => {
     })
     it('/healthcheck', async () => {
         let response = await request.get('/healthcheck')
+        console.log(response.body);
 
         expect(response.status).toBe(200);
-        // expect(response.body.message).toBe("pass!");
+        expect(response.body.message).toBeDefined();
     })
 
     afterAll(() => {
