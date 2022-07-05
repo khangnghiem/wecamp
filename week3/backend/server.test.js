@@ -9,7 +9,6 @@ describe('integration test', () => {
 
     it('/healthcheck', async () => {
         let response = await supertest(app).get('/healthcheck')
-        console.log(response.body);
 
         expect(response.status).toBe(200);
         expect(response.body.message).toBeDefined();
