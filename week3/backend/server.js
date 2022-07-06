@@ -45,6 +45,7 @@ app.get('/products', (req, res, next) => {
 app.post('/product', (req, res, next) => {
   const { title, price } = req.body;
 
+  // validation
   if (!title || title.trim().length === 0 || !price || price <= 0) {
     return res.status(422).json({
       message: 'Invalid input, please enter a valid title and price.'
@@ -57,6 +58,7 @@ app.post('/product', (req, res, next) => {
     price
   };
 
+  // push to database
   DUMMY_PRODUCTS.push(createdProduct);
 
   res.status(201)
@@ -67,3 +69,4 @@ app.post('/product', (req, res, next) => {
 });
 
 export default app.listen(8000); // start Node + Express server on port 8000
+
