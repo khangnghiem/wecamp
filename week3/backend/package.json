@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest --verbose --silent=false --detectOpenHandles",
+    "test": "jest --verbose --silent=false",
     "start": "node server.js"
   },
   "author": "",
