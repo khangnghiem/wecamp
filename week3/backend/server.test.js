@@ -18,6 +18,7 @@ describe('integration test', () => {
         expect(response.status).toBe(200);
         expect(response.body.message).toBeDefined();
     })
+    it.todo('should respond to /badrequest with bad request');
 
     it('should successfully create a product', async () => {
         let response = await supertest(app).post('/product')
@@ -36,6 +37,33 @@ describe('integration test', () => {
         expect(response.status).toBe(422);
         expect(response.body.message).toBe("Invalid input, please enter a valid title and price.");
     })
+
+    it.todo('should fail if ...');
+    it.todo('should fail if ...');
+    it.todo('should fail if ...');
+
+    afterEach(() => {
+        app.close()
+    })
+})
+
+describe('get products', () => {
+    let request;
+    beforeEach(() => {
+        request = supertest(app)
+    })
+
+    it('should get 0 items when initialized', async () => {
+        let response = await request.get('/products')
+
+        expect(response.status).toBe(200)
+        expect(response.body.products.length).toBe(0)
+    })
+    it.todo('should get 1 item after adding 1 item')
+    it.todo('should get 2 item after adding 2 item')
+    it.todo('should get 10 item after adding 10 item')
+    it.todo('should get ... item after adding ... item')
+    it.todo('should get ... item after adding ... item')
 
     afterEach(() => {
         app.close()
