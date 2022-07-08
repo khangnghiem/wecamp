@@ -16,7 +16,7 @@ describe('test mock backend', () => {
         cy.intercept(
             {
                 method: 'GET',
-                url: 'http://localhost:8000/healthcheck'
+                url: 'http://localhost:8000/healthcheck2'
             },
             {
                 body: 'mocked'
@@ -25,16 +25,16 @@ describe('test mock backend', () => {
     });
 
 
-    it('integration test', () => {
+    it('mocked API test', () => {
         cy.visit('http://localhost:3000').then(() => {
-            fetch('http://localhost:8000/healthcheck', { method: 'GET' })
+            fetch('http://localhost:8000/healthcheck2', { method: 'GET' })
         })
 
-        cy.wait('@healthcheck').its('response.statusCode').should('eq', 200)
-        // cy.wait('@healthcheck').its('response.body').should('include', 'mocked')
-        // cy.wait('@healthcheck').its('response.body').should('include', 'mocked')
+        // cy.wait('@healthcheck').its('response.statusCode').should('eq', 200)
+        cy.wait('@healthcheck').its('response.body').should('include', 'mocked')
     })
-    it('integration test 2', () => {
+
+    it('mocked API test 2', () => {
         cy.visit('http://localhost:3000').then(() => {
             fetch('http://localhost:8000/products', { method: 'GET' })
         })

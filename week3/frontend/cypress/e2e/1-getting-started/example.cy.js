@@ -13,23 +13,14 @@
 
 
 
-describe('example to-do app', () => {
-  beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:8000', {
-      status: 200,
-      body: {
-        message: 'Khang',
-      },
-    })
-  });
+describe('example test with Cypress', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
   })
 
-  it('displays two todo items by default', () => {
+  it('displays MERN Shop', () => {
     cy.get('[data-testid=header]').should('contain', 'MERN Shop')
     cy.get('.header').should('contain', 'MERN Shop')
-
   })
 
   it('integration test', () => {

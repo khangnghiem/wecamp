@@ -50,7 +50,7 @@ function App() {
 
       setLoadedProducts(prevProducts => {
         return prevProducts.concat({
-          ...newProduct,
+          ...newProduct, 
           id: responseData.product.id
         });
       });
