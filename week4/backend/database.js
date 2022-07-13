@@ -12,6 +12,24 @@ const db = new SQLite3.Database(PRODUCT_DATABASE, (err) => {
     }
 });
 
+export const getAllProducts = (req, res, next) => {
+    let sql = "SELECT * FROM products"
+    let params = []
+
+    db.all(sql, params, (err, rows) => {
+        if (err) {
+            res.status(400).json({ "error": err.message });
+            return;
+        }
+        res.status(200).json({
+            message: "success",
+            data: rows
+        })
+
+    });
+
+}
+
 const query = (command, method = 'all') => {
     return new Promise((resolve, reject) => {
         db[method](command, (error, result) => {

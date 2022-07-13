@@ -12,11 +12,11 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true);
-      const response = await fetch('http://localhost:8000/products');
+      const response = await fetch('http://localhost:8000/allproducts');
 
       const responseData = await response.json();
 
-      setLoadedProducts(responseData.products);
+      setLoadedProducts(responseData.data);
       setIsLoading(false);
     };
 
@@ -30,7 +30,7 @@ function App() {
         price: +productPrice // "+" to convert string to number
       };
       let hasError = false;
-      const response = await fetch('http://localhost:8000/product', {
+      const response = await fetch('http://localhost:8000/addproduct', {
         method: 'POST',
         body: JSON.stringify(newProduct),
         headers: {

@@ -5,6 +5,67 @@
 import app from "./server";
 import supertest from "supertest";
 
+describe('integration tests for new endpoints', () => {
+    afterEach(() => {
+        app.close()
+    })
+    test('should delete an item', async () => {
+        let item = { title: "Khang delete" }
+        // add item
+        await supertest(app).post('/addproduct').send(item)
+        // delete item
+        let response = await supertest(app).post('/deleteproduct')
+            .send(item)
+
+        expect(response.status).toBe(200)
+        
+    })
+
+    test('should give error message if item cannot be deleted', async () => {
+        
+    })
+})
+
+test('should get all products', async () => {
+    let response = await supertest(app).get('/allproducts')
+        .send({ title: "Test Product", price: "10000000" })
+
+    expect(response.status).toBe(201);
+    expect(response.body.message).toBeDefined();
+})
+describe('integration tests for new endpoints', () => {
+    let request;
+    beforeEach(() => {
+        request = supertest(app)
+    })
+
+    afterEach(() => {
+        app.close()
+    })
+    it('should successfully add product', async () => {
+        let response = await supertest(app).post('/addproduct')
+            .send({ title: "Test Product", price: "10000000" })
+
+        expect(response.status).toBe(201);
+        expect(response.body.message).toBeDefined();
+
+        // delete
+    })
+    it('should fail to add product with a negative price', async () => {
+        // add invalid product
+    })
+    test('should fail to add product with a STRING price', async () => {
+        // add invalid product
+    })
+    test('should fail to add product with no title', async () => {
+        // add invalid product
+    })
+
+    test('should fail to add product with no price', async () => {
+        // add invalid product
+    })
+})
+
 describe('integration test', () => {
 
     it('/healthcheck', async () => {

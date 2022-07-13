@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import db from "./database.js"
+import db, { getAllProducts } from "./database.js"
 import { v4 as uuid } from "uuid";
 
 
@@ -24,23 +24,57 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/allproducts', (req, res, next) => {
-  let sql = "SELECT * FROM products"
-  let params = []
+app.get('/allproducts', async (req, res, next) => {
+  //  * = wildcard
+  // let sql = "SELECT * FROM products"
+  // let params = []
+
+  // db.all(sql, params, (err, rows) => {
+  //   if (err) {
+  //     res.status(400).json({ "error": err.message });
+  //     return;
+  //   }
+  //   res.status(200).json({
+  //     message: "success",
+  //     data: rows
+  //   })
+  //   DUMMY_PRODUCTS = rows
+  //   console.log("All products: ")
+  //   console.log(DUMMY_PRODUCTS)
+  // });
+
+
+  getAllProducts(req, res, next);
+
+
+})
+
+
+
+app.post('/deleteproduct', (req, res, next) => {
+  let sql = `DELETE FROM products WHERE title = ?`
+  // console.log(req.body)
+  let productTitleToBeDeleted = req.body.title
+  let params = [productTitleToBeDeleted]
+
+  // checkIfItemExists(productTitleToBeDeleted)
 
   db.all(sql, params, (err, rows) => {
     if (err) {
       res.status(400).json({ "error": err.message });
       return;
     }
+
     res.status(200).json({
-      message: "success",
-      data: rows
+      message: "Deleted the product.",
+      product: productTitleToBeDeleted
     })
-    DUMMY_PRODUCTS = rows
-    console.log("All products: ")
-    console.log(DUMMY_PRODUCTS)
+
+    console.log("Deleted product: ")
+    console.log(productTitleToBeDeleted)
+
   });
+
 })
 
 
