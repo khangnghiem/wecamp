@@ -7,3 +7,5 @@ This program is designed to help beginners kickstart their journey to Starcamp
 ## Instructor
 Khang Nghiem
 Quynh Anh Le Nguyen
+Ngọc Đoàn (Mi)
+Linh Lê (Bea)
